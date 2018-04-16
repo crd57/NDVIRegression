@@ -161,9 +161,3 @@ def quality(im_data, Bits):
     return data_quality
 
 
-
-"""
-from ndvi_regression import quality
-from ndvi_regression import read_ndvi
-im_data, im_bands, im_geotrans, im_proj = read_ndvi('D:/modis/modisq/tif/MOD13Q1.A2000065.250m_16_days_VI_Quality.tif')
-"""
