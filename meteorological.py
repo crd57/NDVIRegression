@@ -54,8 +54,7 @@ def evannual(data):
     return data_out
 
 
-def saveout(filenames, outpath):
-    fw = open(outpath, 'w')
+def saveout(filenames, fw):
     data = openfile(filenames)
     datat = teannual(data)
     datae = evannual(data)
@@ -64,10 +63,11 @@ def saveout(filenames, outpath):
     data_from.rename(index=str, columns={0: '平均温度'}, inplace=True)
     data_from.rename(index=str, columns={1: '平均降水'}, inplace=True)
     data_from.to_csv(fw)
-    fw.close()
 
 
-saveout('共和.csv', 'D:/NDVI/out/共和.csv')
-saveout('刚察.csv', 'D:/NDVI/out/刚察.csv')
-saveout('天峻.csv', 'D:/NDVI/out/天峻.csv')
-saveout('海晏.csv', 'D:/NDVI/out/海晏.csv')
+fw = open('D:/NDVI/out/out.csv', 'w')
+for i in ['共和', '刚察', '天峻', '海晏']:
+    path = i+'.csv'
+    fw.write(i)
+    saveout(path, fw)
+fw.close()
